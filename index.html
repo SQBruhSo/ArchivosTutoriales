@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCHIVOS TUTORIALES · SQBruhSo</title>
-    <!-- Fuente Inter (limpia y moderna) -->
+    <!-- Fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
@@ -32,7 +32,6 @@
             width: 100%;
         }
 
-        /* cabecera */
         .header {
             margin-bottom: 3rem;
         }
@@ -61,7 +60,6 @@
             color: #c7c7c7;
         }
 
-        /* tarjeta de tutorial */
         .card {
             background: #ffffff;
             border-radius: 28px;
@@ -103,7 +101,7 @@
         }
 
         .download-link {
-            color: #b45353;        /* un rojo suave / terracota */
+            color: #b45353;
             text-decoration: none;
             font-weight: 470;
             border-bottom: 1.5px solid #f0cfcf;
@@ -116,7 +114,15 @@
             border-bottom-color: #b45353;
         }
 
-        /* separador decorativo (opcional) */
+        /* Pequeño detalle de archivo listo */
+        .file-ready {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #a0a0a0;
+            border-top: 1px dashed #e0e0e0;
+            padding-top: 0.8rem;
+        }
+
         .divider {
             width: 60px;
             height: 2px;
@@ -137,11 +143,6 @@
             margin: 2rem auto 0;
             border: 1px solid #eaeaea;
             letter-spacing: 0.3px;
-        }
-
-        /* pie de página invisible (solo para mantener espacio) */
-        .footer {
-            height: 2rem;
         }
 
         @media (max-width: 480px) {
@@ -167,17 +168,16 @@
         <!-- Moon Animator 2 -->
         <div class="card">
             <h2>
-                <a href="https://www.youtube.com/shorts/sA4MOwlGiBk" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/shorts/a4W0aGJGBk" target="_blank" rel="noopener noreferrer">
                     Moon Animator 2
                 </a>
             </h2>
             <p>
                 Para obtener el archivo, haz 
-                <a class="download-link" href="files/Moon.Animator.2.rbxm">click aqui</a>.
+                <a class="download-link" href="files/Moon_Animator_2.rhb">click aquí</a>.
             </p>
-            <!-- Pequeño detalle: la línea de puntos sutíl -->
-            <div style="margin-top: 1.2rem; font-size: 0.85rem; color: #c0c0c0; border-top: 1px dashed #e0e0e0; padding-top: 0.8rem;">
-                ⚡ archivo listo para descargar
+            <div class="file-ready">
+                Archivo listo para descargar
             </div>
         </div>
 
@@ -186,17 +186,8 @@
 
         <!-- Mensaje más archivos -->
         <div class="soon">
-            ⏳ MÁS ARCHIVOS PRONTO
+            MÁS ARCHIVOS PRONTO
         </div>
-
-        <div class="footer"></div>
     </div>
-
-    <!--
-        INSTRUCCIÓN EXPRÉS:
-        - Crea una carpeta "files" al mismo nivel que este index.html.
-        - Dentro coloca tu archivo (ej. moon_animator_2.zip).
-        - Si quieres más tutoriales, copia el div class="card" y cambia el contenido.
-    -->
 </body>
 </html>
