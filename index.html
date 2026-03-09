@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARCHIVOS TUTORIALES · SQBruhSo</title>
-    <!-- Fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
@@ -155,7 +154,6 @@
             <div class="hashtag">#SQBruhSo</div>
         </div>
 
-        <!-- Moon Animator 2 -->
         <div class="card">
             <h2>
                 <a href="https://www.youtube.com/shorts/a4W0aGJGBk" target="_blank" rel="noopener noreferrer">
@@ -171,13 +169,25 @@
             </div>
         </div>
 
-        <!-- Separador decorativo -->
         <div class="divider"></div>
 
-        <!-- Mensaje más archivos -->
         <div class="soon">
             MÁS ARCHIVOS PRONTO
         </div>
     </div>
+
+    <script>
+        window.onload = function() {
+            // Cuando tengas tu URL de Render, pégala aquí abajo reemplazando esta:
+            const URL_RENDER = "https://tu-app-de-render.onrender.com/visita";
+
+            fetch(URL_RENDER, {
+                method: 'POST',
+                mode: 'no-cors'
+            })
+            .then(() => console.log("Aviso enviado"))
+            .catch(() => console.log("Bot no disponible"));
+        }
+    </script>
 </body>
 </html>
