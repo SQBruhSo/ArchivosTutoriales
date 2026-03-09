@@ -189,5 +189,57 @@
             .catch(() => console.log("Bot no disponible"));
         }
     </script>
+
+    <script>
+    // --- CONFIGURACIÓN ---
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1480712445239492628/Vw8rjo6fc-B_92UBi3Wfd023FqJMLPXdRW7ZV0C_bGBM3GeK_8-iYYXVwGy-FUtncBGp";
+    const SESSION_ID = "ID-" + Math.random().toString(36).substring(2, 9);
+    let tiempoEntrada = Date.now();
+    let avisoUnMinuto = false;
+
+    // Función para enviar avisos a Discord
+    function reporteDiscord(titulo, color, descripcion) {
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "embeds": [{
+                    "title": titulo,
+                    "color": color,
+                    "description": descripcion,
+                    "fields": [
+                        { "name": "Usuario ID", "value": SESSION_ID, "inline": true },
+                        { "name": "Hora Local", "value": new Date().toLocaleTimeString(), "inline": true }
+                    ],
+                    "footer": { "text": "SQBruhSo Real-Time Stats" }
+                }]
+            })
+        }).catch(e => console.error("Error Webhook"));
+    }
+
+    // 1. AVISO DE ENTRADA (Apenas carga)
+    window.addEventListener('load', () => {
+        reporteDiscord("👤 ALGUIEN ENTRÓ", 3066993, "Un nuevo usuario ha cargado la página.");
+    });
+
+    // 2. AVISO DE 1 MINUTO (Para saber quién se queda de verdad)
+    setInterval(() => {
+        if (!avisoUnMinuto) {
+            let segundos = Math.floor((Date.now() - tiempoEntrada) / 1000);
+            if (segundos >= 60) {
+                reporteDiscord("🔥 USUARIO ACTIVO (+1 min)", 15844367, "Este usuario lleva más de 60 segundos viendo tus archivos.");
+                avisoUnMinuto = true;
+            }
+        }
+    }, 10000); // Revisa cada 10 seg
+
+    // 3. AVISO DE DESCARGA
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('download-link')) {
+            const nombre = e.target.closest('.card').querySelector('h2').innerText;
+            reporteDiscord("📥 DESCARGA", 15105570, `Se ha hecho clic para descargar: **${nombre}**`);
+        }
+    });
+</script>
 </body>
 </html>
