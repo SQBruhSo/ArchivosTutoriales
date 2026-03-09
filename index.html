@@ -8,143 +8,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #fcfcfc;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.5;
-            padding: 2.5rem 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 620px;
-            width: 100%;
-        }
-
-        .header {
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 500;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            color: #121212;
-        }
-
-        .hashtag {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #a0a0a0;
-            margin-top: 0.2rem;
-        }
-
-        .card {
-            background: #ffffff;
-            border-radius: 28px;
-            padding: 2rem 2rem 2rem 2.5rem;
-            margin: 2.5rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            border: 1px solid #f0f0f0;
-            transition: box-shadow 0.2s ease;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        }
-
-        .card h2 {
-            font-size: 2.2rem;
-            font-weight: 460;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
-        }
-
-        .card h2 a {
-            color: #1f2a44;
-            text-decoration: none;
-            border-bottom: 2px solid #e6e9f0;
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        .card h2 a:hover {
-            border-bottom-color: #1f2a44;
-            color: #000;
-        }
-
-        .card p {
-            font-size: 1.2rem;
-            font-weight: 350;
-            color: #3a3a3a;
-            margin: 1rem 0 0.8rem;
-        }
-
-        .download-link {
-            color: #b45353;
-            text-decoration: none;
-            font-weight: 470;
-            border-bottom: 1.5px solid #f0cfcf;
-            padding-bottom: 1px;
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        .download-link:hover {
-            color: #9b3f3f;
-            border-bottom-color: #b45353;
-        }
-
-        .file-ready {
-            margin-top: 1.2rem;
-            font-size: 0.85rem;
-            color: #a0a0a0;
-            border-top: 1px dashed #e0e0e0;
-            padding-top: 0.8rem;
-        }
-
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: #ececec;
-            margin: 2.2rem auto 2rem;
-            border-radius: 2px;
-        }
-
-        .soon {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 370;
-            color: #9b9b9b;
-            background: #f5f5f5;
-            padding: 1rem 1.8rem;
-            border-radius: 60px;
-            width: fit-content;
-            margin: 2rem auto 0;
-            border: 1px solid #eaeaea;
-            letter-spacing: 0.3px;
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            .card {
-                padding: 1.8rem 1.5rem;
-            }
-            .card h2 {
-                font-size: 1.9rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #fcfcfc; font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.5; padding: 2.5rem 1rem; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .container { max-width: 620px; width: 100%; }
+        .header { margin-bottom: 3rem; }
+        h1 { font-size: 3rem; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; color: #121212; }
+        .hashtag { font-size: 1rem; color: #a0a0a0; margin-top: 0.2rem; }
+        .card { background: #ffffff; border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; }
+        .card h2 { font-size: 2.2rem; font-weight: 460; margin-bottom: 0.75rem; }
+        .card h2 a { color: #1f2a44; text-decoration: none; border-bottom: 2px solid #e6e9f0; }
+        .card p { font-size: 1.2rem; color: #3a3a3a; margin: 1rem 0; }
+        .download-link { color: #b45353; text-decoration: none; font-weight: 470; border-bottom: 1.5px solid #f0cfcf; }
+        .file-ready { margin-top: 1.2rem; font-size: 0.85rem; color: #a0a0a0; border-top: 1px dashed #e0e0e0; padding-top: 0.8rem; }
+        .divider { width: 60px; height: 2px; background: #ececec; margin: 2.2rem auto; }
+        .soon { text-align: center; font-size: 1.2rem; color: #9b9b9b; background: #f5f5f5; padding: 1rem 1.8rem; border-radius: 60px; width: fit-content; margin: 2rem auto 0; border: 1px solid #eaeaea; }
     </style>
 </head>
 <body>
@@ -156,90 +33,70 @@
 
         <div class="card">
             <h2>
-                <a href="https://www.youtube.com/shorts/a4W0aGJGBk" target="_blank" rel="noopener noreferrer">
-                    Moon Animator 2
-                </a>
+                <a href="https://www.youtube.com/shorts/a4W0aGJGBk" target="_blank">Moon Animator 2</a>
             </h2>
             <p>
                 Para obtener el archivo, haz 
-               <a class="download-link" href="https://drive.google.com/uc?export=download&id=1JtTGp9zjLwBZuonMXTbzb9-VEUb9ESU0">click aquí</a>
+                <a class="download-link" href="https://drive.google.com/uc?export=download&id=1JtTGp9zjLwBZuonMXTbzb9-VEUb9ESU0">click aquí</a>
             </p>
-            <div class="file-ready">
-                Archivo listo para descargar
-            </div>
+            <div class="file-ready">Archivo listo para descargar</div>
         </div>
 
         <div class="divider"></div>
-
-        <div class="soon">
-            MÁS ARCHIVOS PRONTO
-        </div>
+        <div class="soon">MÁS ARCHIVOS PRONTO</div>
     </div>
 
     <script>
-        window.onload = function() {
-            // Cuando tengas tu URL de Render, pégala aquí abajo reemplazando esta:
-            const URL_RENDER = "https://tu-app-de-render.onrender.com/visita";
+        const WEBHOOK_URL = "https://discord.com/api/webhooks/1480712445239492628/Vw8rjo6fc-B_92UBi3Wfd023FqJMLPXdRW7ZV0C_bGBM3GeK_8-iYYXVwGy-FUtncBGp";
+        const MENCION_ID = "<@1276323402499756064>";
+        
+        // Contadores locales (se reinician si nadie tiene la web abierta, pero sirven para el reporte)
+        let visitasSesion = 0;
+        let descargasSesion = 0;
 
-            fetch(URL_RENDER, {
+        function reporteDiscord(titulo, color, descripcion, mencio = "") {
+            fetch(WEBHOOK_URL, {
                 method: 'POST',
-                mode: 'no-cors'
-            })
-            .then(() => console.log("Aviso enviado"))
-            .catch(() => console.log("Bot no disponible"));
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "content": mencio,
+                    "embeds": [{
+                        "title": titulo,
+                        "color": color,
+                        "description": descripcion,
+                        "fields": [
+                            { "name": "Hora Local", "value": new Date().toLocaleTimeString(), "inline": true }
+                        ],
+                        "footer": { "text": "SQBruhSo Real-Time Stats" }
+                    }]
+                })
+            }).catch(e => console.error("Error Webhook"));
         }
-    </script>
 
-    <script>
-    // --- CONFIGURACIÓN ---
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1480712445239492628/Vw8rjo6fc-B_92UBi3Wfd023FqJMLPXdRW7ZV0C_bGBM3GeK_8-iYYXVwGy-FUtncBGp";
-    const SESSION_ID = "ID-" + Math.random().toString(36).substring(2, 9);
-    let tiempoEntrada = Date.now();
-    let avisoUnMinuto = false;
+        // 1. AVISO DE ENTRADA
+        window.addEventListener('load', () => {
+            visitasSesion++;
+            reporteDiscord("👤 ALGUIEN ENTRÓ", 3066993, "Un nuevo usuario ha cargado la página.");
+        });
 
-    // Función para enviar avisos a Discord
-    function reporteDiscord(titulo, color, descripcion) {
-        fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "embeds": [{
-                    "title": titulo,
-                    "color": color,
-                    "description": descripcion,
-                    "fields": [
-                        { "name": "Usuario ID", "value": SESSION_ID, "inline": true },
-                        { "name": "Hora Local", "value": new Date().toLocaleTimeString(), "inline": true }
-                    ],
-                    "footer": { "text": "SQBruhSo Real-Time Stats" }
-                }]
-            })
-        }).catch(e => console.error("Error Webhook"));
-    }
-
-    // 1. AVISO DE ENTRADA (Apenas carga)
-    window.addEventListener('load', () => {
-        reporteDiscord("👤 ALGUIEN ENTRÓ", 3066993, "Un nuevo usuario ha cargado la página.");
-    });
-
-    // 2. AVISO DE 1 MINUTO (Para saber quién se queda de verdad)
-    setInterval(() => {
-        if (!avisoUnMinuto) {
-            let segundos = Math.floor((Date.now() - tiempoEntrada) / 1000);
-            if (segundos >= 60) {
-                reporteDiscord("🔥 USUARIO ACTIVO (+1 min)", 15844367, "Este usuario lleva más de 60 segundos viendo tus archivos.");
-                avisoUnMinuto = true;
+        // 2. AVISO DE DESCARGA
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('download-link')) {
+                descargasSesion++;
+                const nombre = e.target.closest('.card').querySelector('h2').innerText;
+                reporteDiscord("📥 DESCARGA", 15105570, `Se ha hecho clic para descargar: **${nombre}**`);
             }
-        }
-    }, 10000); // Revisa cada 10 seg
+        });
 
-    // 3. AVISO DE DESCARGA
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('download-link')) {
-            const nombre = e.target.closest('.card').querySelector('h2').innerText;
-            reporteDiscord("📥 DESCARGA", 15105570, `Se ha hecho clic para descargar: **${nombre}**`);
-        }
-    });
-</script>
+        // 3. REPORTE CADA 1 HORA (Solo si la pestaña sigue abierta)
+        setInterval(() => {
+            reporteDiscord(
+                "⏰ REPORTE POR HORA", 
+                10181046, 
+                `Resumen de actividad de la última hora en esta sesión.\n\n**Visitas:** ${visitasSesion}\n**Descargas:** ${descargasSesion}`,
+                MENCION_ID
+            );
+        }, 3600000); // 3,600,000 ms = 1 hora
+    </script>
 </body>
 </html>
