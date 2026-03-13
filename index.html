@@ -39,6 +39,9 @@
         .copy-btn:hover { background: #3d3d4a; transform: scale(1.02); }
         .copy-success { background: #28a745; border-color: #34ce57; }
         .btn-container { display: flex; justify-content: flex-end; margin-top: 0.5rem; }
+        
+        /* Estilo para comentarios en el código */
+        .code-block .comment { color: #6a9955; }
     </style>
 </head>
 <body>
@@ -72,33 +75,50 @@
                 <a class="video-link" href="https://youtu.be/_LGnzxJRfzg" target="_blank">ver video completo</a>
             </div>
             
-            <!-- Código colapsable -->
+            <!-- Código colapsable con comentarios explicativos -->
             <div class="code-container">
                 <div class="code-block collapsed" id="miniMapCode">
-local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
+--[[
+    SCRIPT MINI-MAP PARA ROBLOX
+    Crea un minimapa que sigue al jugador
+    Requiere: Folder llamado "MapFolder" en workspace
+    Requiere: Frame llamado "MapFrame" en el mismo objeto que el script
+    Requiere: ImageLabel llamado "PlayerArrow" dentro de MapFrame
+--]]
 
-local MapFolder = workspace:WaitForChild("MapFolder")
-local Player = Players.LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+-- Servicios necesarios
+local RunService = game:GetService("RunService")  -- Para el loop de renderizado
+local Players = game:GetService("Players")        -- Para acceder al jugador
 
-local MiniMapFrame = script.Parent:WaitForChild("MapFrame")
-local PlayerArrow = MiniMapFrame:WaitForChild("PlayerArrow")
+-- Referencias a objetos
+local MapFolder = workspace:WaitForChild("MapFolder")  -- Carpeta con las partes del mapa
+local Player = Players.LocalPlayer                       -- Jugador local
+local Character = Player.Character or Player.CharacterAdded:Wait()  -- Esperar al personaje
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")  -- Parte principal
 
+-- Referencias a la UI
+local MiniMapFrame = script.Parent:WaitForChild("MapFrame")      -- Frame del minimapa
+local PlayerArrow = MiniMapFrame:WaitForChild("PlayerArrow")      -- Flecha del jugador
+
+-- Crear camara para el minimapa
 local MapCamera = Instance.new("Camera")
-MapCamera.CameraType = Enum.CameraType.Scriptable
-MapCamera.FieldOfView = 1
-MiniMapFrame.CurrentCamera = MapCamera
+MapCamera.CameraType = Enum.CameraType.Scriptable  -- Camara controlada por script
+MapCamera.FieldOfView = 1                          -- Zoom extremo para vista aerea
+MiniMapFrame.CurrentCamera = MapCamera              -- Asignar camara al frame
 
+-- Clonar todas las partes del mapa dentro del minimapa
 for _, object in ipairs(MapFolder:GetChildren()) do
     local clone = object:Clone()
     clone.Parent = MiniMapFrame
 end
 
+-- Actualizar cada frame
 RunService.RenderStepped:Connect(function()
+    -- Posicionar camara arriba del jugador (vista aerea)
     local cameraPosition = HumanoidRootPart.Position + Vector3.new(0, 5000, 0)
     MapCamera.CFrame = CFrame.new(cameraPosition, HumanoidRootPart.Position)
+    
+    -- Rotar flecha segun la orientacion del jugador
     PlayerArrow.Rotation = -HumanoidRootPart.Orientation.Y - 90
 end)
                 </div>
