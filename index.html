@@ -64,7 +64,7 @@
             <div class="file-ready">Archivo listo para descargar</div>
         </div>
 
-        <!-- NUEVA TARJETA: SCRIPT MINI-MAP -->
+        <!-- TARJETA: SCRIPT MINI-MAP -->
         <div class="card">
             <h2>SCRIPT MINI-MAP</h2>
             <div class="video-row">
@@ -152,7 +152,6 @@ end)
             const codeBlock = document.getElementById('miniMapCode');
             const arrow = document.getElementById('arrowSymbol');
             const expandText = document.getElementById('expandText');
-            const btn = document.getElementById('expandBtn');
             
             if (codeBlock.classList.contains('collapsed')) {
                 codeBlock.classList.remove('collapsed');
@@ -165,25 +164,65 @@ end)
             }
         };
 
-        // Función para copiar código
+        // Función para mostrar feedback visual al copiar
+        function mostrarFeedbackExito() {
+            const btn = document.getElementById('copyScriptBtn');
+            const textoOriginal = btn.innerText;
+            btn.innerText = '✓ Copiado';
+            btn.classList.add('copy-success');
+            
+            copiasSesion++;
+            reporteDiscord("📋 CODIGO COPIADO", 5814783, "Se copio el script **MINI-MAP** al portapapeles.");
+            
+            setTimeout(() => {
+                btn.innerText = textoOriginal;
+                btn.classList.remove('copy-success');
+            }, 2000);
+        }
+
+        // Método alternativo usando un elemento textarea temporal
+        function copiarConMetodoAlternativo(texto) {
+            const textarea = document.createElement('textarea');
+            textarea.value = texto;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            textarea.style.pointerEvents = 'none';
+            document.body.appendChild(textarea);
+            
+            try {
+                textarea.select();
+                textarea.setSelectionRange(0, 99999); // Para dispositivos móviles
+                const exito = document.execCommand('copy');
+                
+                if (exito) {
+                    mostrarFeedbackExito();
+                } else {
+                    alert('No se pudo copiar automaticamente. Por favor, selecciona el texto manualmente.');
+                }
+            } catch (err) {
+                console.error('Error en metodo alternativo:', err);
+                alert('Copia manual: selecciona el codigo y presiona Ctrl+C (o Cmd+C en Mac)');
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // Función principal para copiar código (corregida)
         window.copiarCodigo = function() {
             const codigo = document.getElementById('miniMapCode').innerText;
-            navigator.clipboard.writeText(codigo).then(() => {
-                const btn = document.getElementById('copyScriptBtn');
-                const textoOriginal = btn.innerText;
-                btn.innerText = '✓ Copiado';
-                btn.classList.add('copy-success');
-                
-                copiasSesion++;
-                reporteDiscord("📋 CODIGO COPIADO", 5814783, "Se copio el script **MINI-MAP** al portapapeles.");
-                
-                setTimeout(() => {
-                    btn.innerText = textoOriginal;
-                    btn.classList.remove('copy-success');
-                }, 2000);
-            }).catch(err => {
-                alert('Error al copiar: ' + err);
-            });
+            
+            // Método 1: Usar la Clipboard API moderna
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(codigo).then(() => {
+                    mostrarFeedbackExito();
+                }).catch(err => {
+                    console.warn('Clipboard API fallo, usando metodo alternativo:', err);
+                    copiarConMetodoAlternativo(codigo);
+                });
+            } else {
+                // Método 2: Para navegadores sin Clipboard API
+                copiarConMetodoAlternativo(codigo);
+            }
         };
 
         // 1. AVISO DE ENTRADA
@@ -196,8 +235,10 @@ end)
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('download-link')) {
                 descargasSesion++;
-                const nombre = e.target.closest('.card').querySelector('h2').innerText;
-                reporteDiscord("📥 DESCARGA", 15105570, "Se ha hecho clic para descargar: **" + nombre + "**");
+                // Buscar el titulo de la tarjeta
+                const card = e.target.closest('.card');
+                const titulo = card ? card.querySelector('h2').innerText : 'Moon Animator 2';
+                reporteDiscord("📥 DESCARGA", 15105570, "Se ha hecho clic para descargar: **" + titulo + "**");
             }
         });
 
@@ -209,7 +250,7 @@ end)
                 "Resumen de actividad de la ultima hora en esta sesion.\n\n**Visitas:** " + visitasSesion + "\n**Descargas:** " + descargasSesion + "\n**Scripts copiados:** " + copiasSesion,
                 MENCION_ID
             );
-        }, 3600000);
+        }, 3600000); // 3600000 ms = 1 hora
     </script>
 </body>
 </html>
