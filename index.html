@@ -2,275 +2,51 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHIVOS TUTORIALES · SQBruhSo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <title>Mis Videos de Drive</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #fcfcfc; font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.5; padding: 2.5rem 1rem; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        .container { max-width: 620px; width: 100%; }
-        .header { margin-bottom: 3rem; }
-        h1 { font-size: 3rem; font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; color: #121212; }
-        .hashtag { font-size: 1rem; color: #a0a0a0; margin-top: 0.2rem; }
-        .card { background: #ffffff; border-radius: 28px; padding: 2rem 2.5rem; margin: 2.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; }
-        .card h2 { font-size: 2.2rem; font-weight: 460; margin-bottom: 0.75rem; }
-        .card h2 a { color: #1f2a44; text-decoration: none; border-bottom: 2px solid #e6e9f0; }
-        .card p { font-size: 1.2rem; color: #3a3a3a; margin: 1rem 0; }
-        .download-link { color: #b45353; text-decoration: none; font-weight: 470; border-bottom: 1.5px solid #f0cfcf; }
-        .file-ready { margin-top: 1.2rem; font-size: 0.85rem; color: #a0a0a0; border-top: 1px dashed #e0e0e0; padding-top: 0.8rem; }
-        .divider { width: 60px; height: 2px; background: #ececec; margin: 2.2rem auto; }
-        .soon { text-align: center; font-size: 1.2rem; color: #9b9b9b; background: #f5f5f5; padding: 1rem 1.8rem; border-radius: 60px; width: fit-content; margin: 2rem auto 0; border: 1px solid #eaeaea; }
-        .video-link { display: inline-block; margin-top: 0.5rem; font-size: 0.95rem; color: #4a6fa5; text-decoration: none; border-bottom: 1px solid #cbd5e0; }
-        .video-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1rem 0 0.5rem; }
-        .video-icon { font-size: 0.9rem; color: #666; }
-
-        /* Estilos para el bloque de código colapsable */
-        .code-container { margin: 1.2rem 0; border-radius: 16px; background: #1e1e2f; border: 1px solid #2d2d3a; overflow: hidden; }
-        .code-block { font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.6; color: #e2e2e2; padding: 1.5rem; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
-        .code-block.collapsed { max-height: 120px; overflow: hidden; position: relative; }
-        .code-block.collapsed::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(transparent, #1e1e2f); pointer-events: none; }
-        .expand-btn { width: 100%; padding: 0.8rem; background: #2d2d3a; border: none; border-top: 1px solid #4a4a5a; color: white; font-size: 0.95rem; font-weight: 500; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background 0.2s; }
-        .expand-btn:hover { background: #3d3d4a; }
-        .arrow { display: inline-block; transition: transform 0.3s; font-size: 1.2rem; line-height: 1; }
-        .arrow.expanded { transform: rotate(180deg); }
-        .copy-btn { background: #2d2d3a; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 40px; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: 1px solid #4a4a5a; }
-        .copy-btn:hover { background: #3d3d4a; transform: scale(1.02); }
-        .copy-success { background: #28a745; border-color: #34ce57; }
-        .btn-container { display: flex; justify-content: flex-end; margin-top: 0.5rem; }
-        
-        /* Estilo para comentarios en el código */
-        .code-block .comment { color: #6a9955; }
+        body { font-family: sans-serif; background: #f4f4f9; display: flex; justify-content: center; padding: 40px; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 400px; }
+        h2 { color: #333; border-bottom: 2px solid #58CC02; padding-bottom: 10px; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; }
+        .btn-download { 
+            background: #58CC02; color: white; text-decoration: none; 
+            padding: 6px 12px; border-radius: 4px; font-size: 14px; font-weight: bold;
+        }
+        .btn-download:hover { background: #46a302; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>ARCHIVOS TUTORIALES</h1>
-            <div class="hashtag">#SQBruhSo</div>
-        </div>
 
-        <!-- TARJETA MOON ANIMATOR 2 -->
-        <div class="card">
-            <h2>
-                <a href="https://www.youtube.com/shorts/TMxLeELbvUA" target="_blank">Moon Animator 2</a>
-            </h2>
-            <p>
-                Para obtener el archivo, haz 
-                <a class="download-link" href="https://drive.google.com/uc?export=download&id=1JtTGp9zjLwBZuonMXTbzb9-VEUb9ESU0">click aqui</a>
-            </p>
-            <div class="video-row">
-                <span class="video-icon">▶ Tutorial:</span>
-                <a class="video-link" href="https://www.youtube.com/shorts/TMxLeELbvUA" target="_blank">ver video (shorts)</a>
-            </div>
-            <div class="file-ready">Archivo listo para descargar</div>
-        </div>
+<div class="container">
+    <h2>Lista de Videos</h2>
+    <ul id="lista-videos">
+        </ul>
+</div>
 
-        <!-- TARJETA: SCRIPT MINI-MAP -->
-        <div class="card">
-            <h2>SCRIPT MINI-MAP</h2>
-            <div class="video-row">
-                <span class="video-icon">▶ Tutorial:</span>
-                <a class="video-link" href="https://youtu.be/_LGnzxJRfzg" target="_blank">ver video completo</a>
-            </div>
-            
-            <!-- Código colapsable con comentarios explicativos -->
-            <div class="code-container">
-                <div class="code-block collapsed" id="miniMapCode">
---[[
-    SCRIPT MINI-MAP PARA ROBLOX
-    Crea un minimapa que sigue al jugador
-    Requiere: Folder llamado "MapFolder" en workspace
-    Requiere: Frame llamado "MapFrame" en el mismo objeto que el script
-    Requiere: ImageLabel llamado "PlayerArrow" dentro de MapFrame
---]]
+<script>
+    // --- CONFIGURACIÓN: AQUÍ AÑADES TUS VIDEOS ---
+    // Solo necesitas poner el nombre y el ID del archivo de Google Drive
+    const misVideos = [
+        { nombre: "Tutorial de Scripting", id: "ID_DE_TU_ARCHIVO_1" },
+        { nombre: "Gameplay de Prueba", id: "ID_DE_TU_ARCHIVO_2" },
+        { nombre: "Trailer del Juego", id: "ID_DE_TU_ARCHIVO_3" }
+    ];
 
--- Servicios necesarios
-local RunService = game:GetService("RunService")  -- Para el loop de renderizado
-local Players = game:GetService("Players")        -- Para acceder al jugador
+    const contenedor = document.getElementById('lista-videos');
 
--- Referencias a objetos
-local MapFolder = workspace:WaitForChild("MapFolder")  -- Carpeta con las partes del mapa
-local Player = Players.LocalPlayer                       -- Jugador local
-local Character = Player.Character or Player.CharacterAdded:Wait()  -- Esperar al personaje
-local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")  -- Parte principal
+    misVideos.forEach(video => {
+        // Enlace directo de descarga de Google Drive
+        const urlDescarga = `https://drive.google.com/uc?export=download&id=${video.id}`;
 
--- Referencias a la UI
-local MiniMapFrame = script.Parent:WaitForChild("MapFrame")      -- Frame del minimapa
-local PlayerArrow = MiniMapFrame:WaitForChild("PlayerArrow")      -- Flecha del jugador
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${video.nombre}</span>
+            <a href="${urlDescarga}" class="btn-download">Descargar</a>
+        `;
+        contenedor.appendChild(li);
+    });
+</script>
 
--- Crear camara para el minimapa
-local MapCamera = Instance.new("Camera")
-MapCamera.CameraType = Enum.CameraType.Scriptable  -- Camara controlada por script
-MapCamera.FieldOfView = 1                          -- Zoom extremo para vista aerea
-MiniMapFrame.CurrentCamera = MapCamera              -- Asignar camara al frame
-
--- Clonar todas las partes del mapa dentro del minimapa
-for _, object in ipairs(MapFolder:GetChildren()) do
-    local clone = object:Clone()
-    clone.Parent = MiniMapFrame
-end
-
--- Actualizar cada frame
-RunService.RenderStepped:Connect(function()
-    -- Posicionar camara arriba del jugador (vista aerea)
-    local cameraPosition = HumanoidRootPart.Position + Vector3.new(0, 5000, 0)
-    MapCamera.CFrame = CFrame.new(cameraPosition, HumanoidRootPart.Position)
-    
-    -- Rotar flecha segun la orientacion del jugador
-    PlayerArrow.Rotation = -HumanoidRootPart.Orientation.Y - 90
-end)
-                </div>
-                <button class="expand-btn" id="expandBtn" onclick="toggleCode()">
-                    <span class="arrow" id="arrowSymbol">▼</span>
-                    <span id="expandText">Ver codigo completo</span>
-                </button>
-            </div>
-            
-            <!-- Botón de copiar -->
-            <div class="btn-container">
-                <button class="copy-btn" id="copyScriptBtn" onclick="copiarCodigo()">📋 Copiar codigo</button>
-            </div>
-            <div class="file-ready">Script listo para copiar · Prueba el tutorial</div>
-        </div>
-
-        <div class="divider"></div>
-        <div class="soon">MAS ARCHIVOS PRONTO</div>
-    </div>
-
-    <script>
-        const WEBHOOK_URL = "https://discord.com/api/webhooks/1480712445239492628/Vw8rjo6fc-B_92UBi3Wfd023FqJMLPXdRW7ZV0C_bGBM3GeK_8-iYYXVwGy-FUtncBGp";
-        const MENCION_ID = "<@1276323402499756064>";
-        
-        // Contadores locales
-        let visitasSesion = 0;
-        let descargasSesion = 0;
-        let copiasSesion = 0;
-
-        function reporteDiscord(titulo, color, descripcion, mencio = "") {
-            fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    "content": mencio,
-                    "embeds": [{
-                        "title": titulo,
-                        "color": color,
-                        "description": descripcion,
-                        "fields": [
-                            { "name": "Hora Local", "value": new Date().toLocaleTimeString(), "inline": true }
-                        ],
-                        "footer": { "text": "SQBruhSo Real-Time Stats" }
-                    }]
-                })
-            }).catch(e => console.error("Error Webhook"));
-        }
-
-        // Función para expandir/colapsar código
-        window.toggleCode = function() {
-            const codeBlock = document.getElementById('miniMapCode');
-            const arrow = document.getElementById('arrowSymbol');
-            const expandText = document.getElementById('expandText');
-            
-            if (codeBlock.classList.contains('collapsed')) {
-                codeBlock.classList.remove('collapsed');
-                arrow.style.transform = 'rotate(180deg)';
-                expandText.textContent = 'Ver menos';
-            } else {
-                codeBlock.classList.add('collapsed');
-                arrow.style.transform = 'rotate(0deg)';
-                expandText.textContent = 'Ver codigo completo';
-            }
-        };
-
-        // Función para mostrar feedback visual al copiar
-        function mostrarFeedbackExito() {
-            const btn = document.getElementById('copyScriptBtn');
-            const textoOriginal = btn.innerText;
-            btn.innerText = '✓ Copiado';
-            btn.classList.add('copy-success');
-            
-            copiasSesion++;
-            reporteDiscord("📋 CODIGO COPIADO", 5814783, "Se copio el script **MINI-MAP** al portapapeles.");
-            
-            setTimeout(() => {
-                btn.innerText = textoOriginal;
-                btn.classList.remove('copy-success');
-            }, 2000);
-        }
-
-        // Método alternativo usando un elemento textarea temporal
-        function copiarConMetodoAlternativo(texto) {
-            const textarea = document.createElement('textarea');
-            textarea.value = texto;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            textarea.style.pointerEvents = 'none';
-            document.body.appendChild(textarea);
-            
-            try {
-                textarea.select();
-                textarea.setSelectionRange(0, 99999); // Para dispositivos móviles
-                const exito = document.execCommand('copy');
-                
-                if (exito) {
-                    mostrarFeedbackExito();
-                } else {
-                    alert('No se pudo copiar automaticamente. Por favor, selecciona el texto manualmente.');
-                }
-            } catch (err) {
-                console.error('Error en metodo alternativo:', err);
-                alert('Copia manual: selecciona el codigo y presiona Ctrl+C (o Cmd+C en Mac)');
-            } finally {
-                document.body.removeChild(textarea);
-            }
-        }
-
-        // Función principal para copiar código (corregida)
-        window.copiarCodigo = function() {
-            const codigo = document.getElementById('miniMapCode').innerText;
-            
-            // Método 1: Usar la Clipboard API moderna
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(codigo).then(() => {
-                    mostrarFeedbackExito();
-                }).catch(err => {
-                    console.warn('Clipboard API fallo, usando metodo alternativo:', err);
-                    copiarConMetodoAlternativo(codigo);
-                });
-            } else {
-                // Método 2: Para navegadores sin Clipboard API
-                copiarConMetodoAlternativo(codigo);
-            }
-        };
-
-        // 1. AVISO DE ENTRADA
-        window.addEventListener('load', () => {
-            visitasSesion++;
-            reporteDiscord("👤 ALGUIEN ENTRO", 3066993, "Un nuevo usuario ha cargado la pagina.");
-        });
-
-        // 2. AVISO DE DESCARGA (Moon Animator)
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('download-link')) {
-                descargasSesion++;
-                // Buscar el titulo de la tarjeta
-                const card = e.target.closest('.card');
-                const titulo = card ? card.querySelector('h2').innerText : 'Moon Animator 2';
-                reporteDiscord("📥 DESCARGA", 15105570, "Se ha hecho clic para descargar: **" + titulo + "**");
-            }
-        });
-
-        // 3. REPORTE CADA 1 HORA
-        setInterval(() => {
-            reporteDiscord(
-                "⏰ REPORTE POR HORA", 
-                10181046, 
-                "Resumen de actividad de la ultima hora en esta sesion.\n\n**Visitas:** " + visitasSesion + "\n**Descargas:** " + descargasSesion + "\n**Scripts copiados:** " + copiasSesion,
-                MENCION_ID
-            );
-        }, 3600000); // 3600000 ms = 1 hora
-    </script>
 </body>
 </html>
